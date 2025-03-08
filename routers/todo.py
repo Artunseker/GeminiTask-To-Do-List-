@@ -164,7 +164,4 @@ def create_todo_with_gemini(todo_string:str):
 
 
 
-if __name__=="__main__":
-
-    print(create_todo_with_gemini("buy milk"))
 
