@@ -1,26 +1,380 @@
+/* Modern Todo App - Force Override */
 
+/* CSS Variables */
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --info-color: #06b6d4;
+    --warning-color: #f59e0b;
+    --dark-text: #1e293b;
+    --light-text: #64748b;
+    --white: #ffffff;
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --border-radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+/* Global Reset */
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Body Override */
 body {
-  background: #fafafa;
-  color: #33333a;
-  padding-top: 70px;
+    font-family: 'Inter', sans-serif !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+    color: var(--dark-text) !important;
+    padding-top: 90px !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    display: block !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #323232;
+/* Animasyonlu Arka Plan */
+body::before {
+    content: '' !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat !important;
+    animation: float 20s infinite linear !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
 }
 
-.main-color {
-  background-color: #f47f0a;
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
 }
 
-.strike-through-td {
-    text-decoration: line-through;
+/* Navbar TAMAMEN Override */
+.navbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: var(--shadow) !important;
+    padding: 1.5rem 2rem !important;
+    border: none !important;
+    position: fixed !important;
+    width: 100% !important;
+    top: 0 !important;
+    z-index: 1000 !important;
 }
 
-/* h1 {
-  color: red;
-} */
+.navbar-brand {
+    display: inline-block !important;
+    padding-top: 0.3125rem !important;
+    padding-bottom: 0.3125rem !important;
+    margin-right: 1rem !important;
+    font-weight: 800 !important;
+    font-size: 1.75rem !important;
+    line-height: inherit !important;
+    white-space: nowrap !important;
+    /* Gradient text yerine solid renk */
+    color: #1e293b !important;
+    text-decoration: none !important;
+    /* Gradient kaldırıldı */
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+}
 
+.navbar-brand:hover {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+}
 
+.navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    list-style: none !important;
+    align-items: center !important;
+}
 
+.navbar-nav .nav-item {
+    display: flex !important;
+    align-items: center !important;
+}
 
+.navbar-nav .nav-link {
+    display: block !important;
+    padding: 0.75rem 1.5rem !important;
+    color: var(--primary-color) !important; /* Mavi renk */
+    font-weight: 600 !important;
+    transition: var(--transition) !important;
+    border-radius: 8px !important;
+    margin: 0 0.5rem !important;
+    text-decoration: none !important;
+    background: none !important;
+    border: none !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    text-decoration: none !important;
+}
+
+/* Eğer daha açık renk istersen */
+.navbar-nav .nav-link {
+    color: #64748b !important; /* Açık gri */
+}
+
+/* Veya mavi tonlarda istersen */
+.navbar-nav .nav-link {
+    color: var(--primary-color) !important; /* Mavi */
+}
+
+/* Logout Button Override */
+.btn-outline-light {
+    display: inline-block !important;
+    font-weight: 600 !important;
+    color: var(--primary-color) !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+    border: 2px solid var(--primary-color) !important;
+    padding: 0.5rem 1.5rem !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    border-radius: 8px !important;
+    transition: var(--transition) !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    margin-left: 1rem !important;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-2px) !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Container Override */
+.container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 2rem auto !important;
+    padding: 0 2rem !important;
+}
+
+/* Card TAMAMEN Override */
+.card {
+    display: block !important;
+    position: relative !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow) !important;
+    overflow: hidden !important;
+    transition: var(--transition) !important;
+    margin-bottom: 2rem !important;
+    word-wrap: break-word !important;
+}
+
+.card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--info-color)) !important;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+}
+
+.card-header {
+    display: block !important;
+    padding: 2rem !important;
+    margin-bottom: 0 !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+    border: none !important;
+    text-align: center !important;
+}
+
+.card-body {
+    display: block !important;
+    padding: 2.5rem !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+}
+
+.card-title {
+    display: block !important;
+    margin-bottom: 1.5rem !important;
+    color: var(--dark-text) !important;
+    font-weight: 800 !important;
+    font-size: 1.5rem !important;
+}
+
+.card-text {
+    display: block !important;
+    margin-bottom: 2rem !important;
+    color: var(--light-text) !important;
+    font-size: 1.1rem !important;
+}
+
+/* Button TAMAMEN Override */
+.btn {
+    display: inline-block !important;
+    font-weight: 700 !important;
+    color: white !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 1rem 2.5rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    border-radius: 8px !important;
+    transition: var(--transition) !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin: 0.5rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #4f46e5) !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4) !important;
+    color: white !important;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success-color), #059669) !important;
+    color: white !important;
+}
+
+.btn-success:hover {
+    transform: translateY(-4px) !important;
+    color: white !important;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, var(--info-color), #0891b2) !important;
+    color: white !important;
+}
+
+.btn-info:hover {
+    transform: translateY(-4px) !important;
+    color: white !important;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger-color), #dc2626) !important;
+    color: white !important;
+}
+
+.btn-danger:hover {
+    transform: translateY(-4px) !important;
+    color: white !important;
+}
+
+/* Form Override */
+.form-control {
+    display: block !important;
+    width: 100% !important;
+    padding: 1rem 1.25rem !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #495057 !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    transition: var(--transition) !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1) !important;
+    background: white !important;
+    outline: none !important;
+}
+
+.form-group {
+    margin-bottom: 2rem !important;
+}
+
+.form-group label {
+    display: block !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 700 !important;
+    color: var(--dark-text) !important;
+}
+
+/* Table Override */
+.table {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: var(--border-radius) !important;
+    overflow: hidden !important;
+    box-shadow: var(--shadow) !important;
+}
+
+.table thead th {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    padding: 1.5rem !important;
+    border: none !important;
+}
+
+.table tbody td {
+    padding: 1.5rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    font-weight: 500 !important;
+}
+
+.table tbody tr:hover {
+    background: rgba(99, 102, 241, 0.05) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px !important;
+    }
+    
+    .navbar {
+        padding: 1rem !important;
+    }
+    
+    .btn-outline-light {
+        margin-left: 0 !important;
+        margin-top: 0.5rem !important;
+    }
+}

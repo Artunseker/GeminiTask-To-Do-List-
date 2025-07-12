@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/base.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/bootstrap.css') }}">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TodoApp with Gemini</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/bootstrap.css') }}">
+    <!-- BASE CSS (doğru dosya adı) -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/base.css') }}?v=123456">
+    
+    <!-- FORCE STYLES -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+            background-attachment: fixed !important;
+            font-family: 'Inter', sans-serif !important;
+            min-height: 100vh !important;
+            padding-top: 90px !important;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 800 !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 600 !important;
+        }
+        
+        .btn-outline-light {
+            color: #6366f1 !important;
+            border: 2px solid #6366f1 !important;
+            background: transparent !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+        }
+        
+        .btn-outline-light:hover {
+            background: #6366f1 !important;
+            color: white !important;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+            border: none !important;
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+            color: white !important;
+            border: none !important;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+            border: none !important;
+        }
+    </style>
 </head>
 <body>
 

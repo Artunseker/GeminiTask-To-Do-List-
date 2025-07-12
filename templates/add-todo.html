@@ -3,30 +3,36 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      Make a new todo
+      ✨ Create New Todo
     </div>
     <div class="card-body">
       <form id="todoForm">
         <div class="form-group">
-          <label>Title</label>
-          <input type="text" class="form-control" name="title" required>
+          <label>📝 Title</label>
+          <input type="text" class="form-control" name="title" placeholder="What needs to be done?" required>
         </div>
         <div class="form-group">
-          <label>Description</label>
-          <textarea class="form-control" rows="3" name="description" required></textarea>
+          <label>📄 Description</label>
+          <textarea class="form-control" rows="4" name="description" placeholder="Add more details about your task..." required></textarea>
         </div>
         <div class="form-group">
-          <label>Priority</label>
+          <label>⭐ Priority Level</label>
           <select class="form-control" name="priority">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option value="1">🔥 Urgent (1)</option>
+            <option value="2">⚡ High (2)</option>
+            <option value="3" selected>📋 Medium (3)</option>
+            <option value="4">📝 Low (4)</option>
+            <option value="5">💤 Someday (5)</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary"> Add new todo </button>
-        <a href="/todo/todo-page" class="btn btn-success">Back</a>
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary btn-lg">
+            ✅ Create Todo
+          </button>
+          <a href="/todo/todo-page" class="btn btn-success btn-lg">
+            ↩️ Back to List
+          </a>
+        </div>
       </form>
     </div>
   </div>

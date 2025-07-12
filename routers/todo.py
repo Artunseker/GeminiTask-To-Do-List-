@@ -157,10 +157,13 @@ def create_todo_with_gemini(todo_string:str):
         [
             HumanMessage(content="I will provide you a todo item to add my to do list. What i want you to do is to create a longer and more comprehensive description of that todo item, my next message will be my todo:"),
             HumanMessage(content="Your answers will be in Turkish and Give me suggestions and answers, don't question. For example, when I say I need to buy a laptop, give me laptop suggestions and tell me what I should pay attention to. Plus if you ask for a dish give a recipe"),
+            HumanMessage(content="IMPORTANT: Keep your response under 800 characters. Be concise and helpful but brief."),
             HumanMessage(content=todo_string),
         ]
     )
-    return mark_down_to_text(response.content)
+    result = mark_down_to_text(response.content)
+    # Ensure it doesn't exceed 1000 characters for database constraint
+    return result[:1000] if len(result) > 1000 else result
 
 
 
