@@ -1,5 +1,3 @@
-AGENT MOD AKTIF 🤖⚡ Portfolio için harika bir proje açıklaması yazıyorum:
-
 # 🚀 ToDoGemini - AI-Powered Task Management Application
 
 ## 📋 Proje Özeti
